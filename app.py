@@ -1,6 +1,4 @@
-import os
 import streamlit as st
-from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from typing import List
 import numpy as np
@@ -71,20 +69,20 @@ Question:
 """
 }
 
-# ------------------ LOAD ENVIRONMENT VARIABLES ------------------
-load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-PERPLEXITY_API_KEY = os.getenv("PERPLEXITY_API_KEY")
+# ------------------ LOAD API KEYS FROM STREAMLIT SECRETS ------------------
+GEMINI_API_KEY = st.secrets["GEMINI_API_KEY"]
+GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+PERPLEXITY_API_KEY = st.secrets["PERPLEXITY_API_KEY"]
 
+# ------------------ CHECK KEYS ------------------
 if not GEMINI_API_KEY:
-    st.error("Please set your GEMINI_API_KEY in your .env file.")
+    st.error("Please set your GEMINI_API_KEY in .streamlit/secrets.toml.")
     st.stop()
 if not GOOGLE_API_KEY:
-    st.error("Please set your GOOGLE_API_KEY in your .env file.")
+    st.error("Please set your GOOGLE_API_KEY in .streamlit/secrets.toml.")
     st.stop()
 if not PERPLEXITY_API_KEY:
-    st.error("Please set your PERPLEXITY_API_KEY in your .env file.")
+    st.error("Please set your PERPLEXITY_API_KEY in .streamlit/secrets.toml.")
     st.stop()
 
 # ------------------ INITIALIZE GEMINI CLIENT ------------------
