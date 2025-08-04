@@ -140,7 +140,7 @@ def ask_llm_perplexity(question: str, context: str, model: str, label: str, prom
     payload = {
         "model": model,
         "messages": [
-            {"role": "system", "content": "Reply concisely as an experienced hiring manager/recruiter for the specified role."},
+            {"role": "system", "content": "Reply concisely as an experienced hiring manager/recruiter for the specified role and help me with their names while you respond."},
             {"role": "user", "content": prompt}
         ]
     }
