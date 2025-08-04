@@ -4,8 +4,6 @@ google-generativeai
 requests
 reportlab
 typing-extensions
-io
-json
 grpcio
 protobuf
 pillow
