@@ -1,8 +1,11 @@
 streamlit
-python-dotenv
 PyPDF2
-numpy
-faiss-cpu
-requests
-langchain-google-genai
 google-generativeai
+requests
+reportlab
+typing-extensions
+io
+json
+grpcio
+protobuf
+pillow
